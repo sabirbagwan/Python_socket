@@ -1,0 +1,14 @@
+import socket
+import requests
+
+def iplocnpub():
+    local_ip_address = socket.gethostbyname(socket.gethostname())
+    
+    public_ip_address = requests.get('http://api.ipify.org').text
+    
+    return local_ip_address, public_ip_address
+
+
+local, public = iplocnpub()
+print(local)
+print(public)
